@@ -14,6 +14,7 @@ with open(file = '2017.csv', mode = 'r', encoding = 'utf8') as csv_file:
             'trans_per_month'     : {}
         }
 
+    # Map numbers to months in a dictionary
     month = {
                 '01':'Jan',
                 '02':'Feb',
@@ -54,18 +55,24 @@ with open(file = '2017.csv', mode = 'r', encoding = 'utf8') as csv_file:
 
 # Question and answer 1
 print('Question 1: What Exchange has had the most transactions in the file?')
-most_trans = max(db['exchange_most_trans'], key = db['exchange_most_trans'].get)
+most_trans = max(db['exchange_most_trans'], 
+                 key = db['exchange_most_trans'].get)
 print('Answer 1: {}' . format(most_trans))
 print('\n')
 
 # Question and answer 2
-print('Question 2: In August 2017, which companyName had the highest combined valueEUR?')
-highest_key = max(db['highest_value_EUR'], key = db['highest_value_EUR'].get)
+print('Question 2: In August 2017, which companyName \
+       had the highest combined valueEUR?')
+highest_key = max(db['highest_value_EUR'], 
+                  key = db['highest_value_EUR'].get)
 print('Answer 2: {}' . format(highest_key))
 print('\n')
 
 # Question and answer 3
-print('Question 3: For 2017, only considering transactions with tradeSignificance 3, what is the percentage of transactions per month?')
+print('Question 3: For 2017, only considering transactions \
+       with tradeSignificance 3, what is the percentage of \
+       transactions per month?')
+
 total = sum(db['trans_per_month'].values())
 print('Answer 3: ')
 for key in db['trans_per_month']:
