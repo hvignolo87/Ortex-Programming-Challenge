@@ -37,7 +37,7 @@ end["date"] = DateToDisplayDate(end["date"])
 # Print the header of the report
 print("Sales Report\nReport start date: " + start["date"].replace('  ', '') + \
       " | Starting value: $" + str(round(start["sales"], 2)) + \
-      "\nReport end date: " + end["date"].replace('  ', '') + \
+      "\nReport end date: "  + end["date"].replace('  ', '') + \
       " | Total sales: $"    + str(round(end["sales"], 2))   + "\n")
 
 total = 0
