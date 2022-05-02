@@ -45,8 +45,8 @@ for k, v in enumerate(test_data):
     
     # Print the header of each row
     print("%-32s%-15s%-0s" % ("Date", "Sales", "Month to Date"))
-    
-    if month == "02" and k == 29:
+
+    if month == "02" and k == 28:
         print("Leap year") # Must be displayed if data is for a leap year
     
     # String formatting for print
