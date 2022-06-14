@@ -1,5 +1,5 @@
 # For DB connection and queries handling
-from sqlalchemy import create_engine, text, types
+from sqlalchemy import create_engine, text
 
 # For credentials
 from configparser import ConfigParser
