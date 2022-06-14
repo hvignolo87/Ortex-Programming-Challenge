@@ -1,4 +1,4 @@
-# Ortex Programming Challenge
+# Ortex Programming Challenges
 In this repository you will find my solutions to the coding challenges required for the open job positions:
 
 - [Python Developer](https://public.ortex.com/python-developer/)
