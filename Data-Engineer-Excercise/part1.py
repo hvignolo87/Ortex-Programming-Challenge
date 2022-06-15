@@ -54,13 +54,13 @@ with engine.connect() as conn:
     task1 = """
     SELECT
         exchange, 
-        COUNT(exchange) AS unique_exchanges
+        COUNT(exchange) AS trans
     FROM 
         transactions
     GROUP BY
         exchange
     ORDER BY 
-        unique_exchanges DESC
+        trans DESC
     LIMIT 3;
     """
     result = conn.execute(text(task1))
