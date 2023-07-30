@@ -1,4 +1,5 @@
 """ /*** LIBRARIES IMPORTATION ***/ """
+
 # For DB connection and queries handling
 from sqlalchemy import create_engine, text
 
@@ -70,7 +71,7 @@ with engine.connect() as conn:
     for row in result.fetchall():
         print(row[0])
 
-    
+
     # /*** TASK 2 ***/
     task2 = """
     SELECT
@@ -116,9 +117,9 @@ with engine.connect() as conn:
     print("\nTask 3: For 2017, only considering " + \
           "transactions with tradeSignificance 3, what " + \
           "is the percentage of transactions per month?")
-    
+
     result = result.fetchall()
-    total = sum([i[0] for i in result])
-    
+    total = sum(i[0] for i in result)
+
     for row in result:
         print(row[1], round(100*row[0]/total, 2), '%')

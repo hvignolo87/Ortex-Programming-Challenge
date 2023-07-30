@@ -21,10 +21,7 @@ test_data = {f"{x}": {"date": datetime.strptime(f"2021{month}{x:02d}", "%Y%m%d")
 start = test_data['1']
 
 # End in the last day of February
-if '29' in test_data.keys():
-    end = test_data['29']
-else:
-    end = test_data['28']
+end = test_data.get('29', test_data['28'])
 
 def DateToDisplayDate(date):
     # E.g. Monday 8th February, 2021
@@ -48,7 +45,7 @@ for k, v in enumerate(test_data):
 
     if month == "02" and k == 28:
         print("Leap year") # Must be displayed if data is for a leap year
-    
+
     # String formatting for print
     string_format = "%-32s$%-14s$%-0s"
 
@@ -57,21 +54,14 @@ for k, v in enumerate(test_data):
         date = DateToDisplayDate(test_data[v]['date'])
         # Remove extra spaces
         date = date.replace('  ', '')
-        # Print
-        print(string_format % \
-              (date, \
-               round(test_data[v]['sales'], 2), \
-               round(total, 2))
-            )
     else:
         # Get the date and remove extra spaces
         date = test_data[v]['date'].replace('   ', '')
-        # Print
-        print(string_format % \
-              (date, \
-               round(test_data[v]['sales'], 2), \
-               round(total, 2))
-            )
-    
+    # Print
+    print(string_format % \
+          (date, \
+           round(test_data[v]['sales'], 2), \
+           round(total, 2))
+        )
     total += test_data[v]['sales']
     print(f"Total sales for the month: ${total:.2f}\n")
