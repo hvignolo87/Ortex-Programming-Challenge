@@ -12,10 +12,10 @@ csv_path = os.path.join(dirname, '2017.csv')
 
 # Open the CSV file
 with open(file=csv_path, mode='r', encoding='utf8') as csv_file:
-    
+
     # Map each line in the CSV into a dictionary
     transactions = csv.DictReader(csv_file, delimiter=',')
-        
+
     # Create an empty dictionary to store the results
     db = {
         'exchange_most_trans': {},
@@ -66,7 +66,7 @@ with open(file=csv_path, mode='r', encoding='utf8') as csv_file:
 print('Question 1: What Exchange has had the most transactions in the file?')
 most_trans = max(db['exchange_most_trans'], 
                  key=db['exchange_most_trans'].get)
-print('Answer 1: {}'.format(most_trans))
+print(f'Answer 1: {most_trans}')
 print('\n')
 
 # Question and answer 2
@@ -74,7 +74,7 @@ print('Question 2: In August 2017, which companyName ' + \
       'had the highest combined valueEUR?')
 highest_key = max(db['highest_value_EUR'], 
                   key=db['highest_value_EUR'].get)
-print('Answer 2: {}'.format(highest_key))
+print(f'Answer 2: {highest_key}')
 print('\n')
 
 # Question and answer 3
@@ -87,4 +87,4 @@ print('Answer 3: ')
 for key in db['trans_per_month']:
     db['trans_per_month'][key] /= total
     db['trans_per_month'][key] *= 100
-    print(key + ', {}%'.format(round(db['trans_per_month'][key], 2)))
+    print(f"{key}, {round(db['trans_per_month'][key], 2)}%")
